@@ -82,8 +82,8 @@ export default function TextForm(props) {
                 <button disabled = {text.length===0} className="btn btn-primary mx-1 my-1" type="submit" onClick={handleSpaces}>Remove Extra Spaces</button>
             </div>
             <div className={`container my-3 text-${(props.mode==='dark')? 'white':'#070421'} `} ><h1>Your text Summary</h1>
-                <p>Time to read :{0.008 * text.split(" ").filter((element)=>{return element.length !==0}).length} mins </p>
-                <p>Number of words :{wordCounter(text)}          Number of characters: {text.length}</p>
+                <p>Time to read :{0.008 * text.split(/\s+/).filter((element)=>{return element.length !==0}).length} mins </p>
+                <p>Number of words :{text.split(/\s+/).filter((element)=>{return element.length !==0}).length}          Number of characters: {text.length}</p>
                 <h2>Preview</h2>
                 <p>{(text.length > 0)?text:"Nothing to preview"}</p>
             </div>
